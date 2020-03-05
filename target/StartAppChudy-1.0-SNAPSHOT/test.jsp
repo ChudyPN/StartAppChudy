@@ -8,8 +8,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Users</title>
-    <link rel="stylesheet" href="<c:url value="/resources/bootstrap-4.4.1/css/bootstrap.css"></c:url>">
-    <script type="text/javascript" src="<c:url value="/resources/bootstrap-4.4.1/js/bootstrap.js"></c:url><</script>"></script>
+    <link rel="stylesheet" href="<c:url value="resources/bootstrap-4.4.1/css/bootstrap.css"></c:url>">
+    <script type="text/javascript" src="<c:url value="resources/bootstrap-4.4.1/js/bootstrap.js"></c:url><</script>"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 
