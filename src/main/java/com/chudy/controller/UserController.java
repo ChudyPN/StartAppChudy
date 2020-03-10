@@ -3,8 +3,6 @@ package com.chudy.controller;
 
 import com.chudy.spring.model.User;
 import com.chudy.spring.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,11 +15,10 @@ public class UserController {
 
     private UserService userService;
 
-    @Autowired(required = true)
-    @Qualifier(value = "userService")
-    public void setUserService(UserService us) {
-        this.userService = us;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
+
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     public String listUser(Model model) {

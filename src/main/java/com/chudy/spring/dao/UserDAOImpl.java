@@ -6,7 +6,9 @@ import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
 import java.util.List;
 
 @Repository
@@ -15,9 +17,18 @@ public class UserDAOImpl implements UserDAO {
 
     private static final Logger logger = LoggerFactory.getLogger(UserDAO.class);
 
-    private SessionFactory sessionFactory;
+    private EntityManager manager;
 
-    public void setSessionFactory(SessionFactory sessionFactory) {
+    public UserDAOImpl(EntityManager manager) {
+        this.manager = manager;
+    }
+
+
+}
+
+
+
+    /*public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
@@ -62,5 +73,5 @@ public class UserDAOImpl implements UserDAO {
         }
         logger.info("User deleted successfully, user details" + u);
         }
-    }
+    }*/
 

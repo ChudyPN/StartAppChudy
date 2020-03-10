@@ -1,10 +1,18 @@
 package com.chudy.spring.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name ="USER")
-public class User {
+@Data
+@Table(name ="USERS")
+@NamedQuery(name = User.GET_USERS, query = User.GET_USERS)
+public class User implements Serializable {
+
+    public static final String GET_USERS ="SELECT id, email, firstName, lastName FROM USERS";
+
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,41 +27,4 @@ public class User {
     @Column(name = "email")
     private String email;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id){
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getEmai() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-
-    }
-
-    @Override
-    public String toString() {
-        return "User{" + "id=" + id + ", first name=" + firstName + ", last name='" + lastName + '\'' + ", email=" + email +'}';
-    }
 }

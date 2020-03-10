@@ -3,27 +3,25 @@ package com.chudy.spring.service;
 
 import com.chudy.spring.dao.UserDAO;
 import com.chudy.spring.model.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
-    private UserDAO userDAO;
+    private final UserDAO userDAO;
 
-    public void setUserDAO(UserDAO userDAO) {
+    public UserServiceImpl(UserDAO userDAO) {
         this.userDAO = userDAO;
     }
+
 
     @Override
     @Transactional
     public void addUser(User u) {
-        this.userDAO = userDAO;
-
+        userDAO.addUser(u);
     }
 
     @Override
@@ -36,13 +34,13 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public List<User> listUser() {
-        return this.userDAO.listUser();
+        return userDAO.listUser();
     }
 
     @Override
     @Transactional
     public User getUserById(int id) {
-        return this.userDAO.getUserById(id);
+        return userDAO.getUserById(id);
     }
 
     @Override
