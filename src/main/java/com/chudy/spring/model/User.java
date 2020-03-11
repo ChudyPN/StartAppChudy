@@ -8,10 +8,10 @@ import java.io.Serializable;
 @Entity
 @Data
 @Table(name ="USERS")
-@NamedQuery(name = User.GET_USERS, query = User.GET_USERS)
+
 public class User implements Serializable {
 
-    public static final String GET_USERS ="SELECT id, email, firstName, lastName FROM USERS";
+
 
     @Id
     @Column(name = "id")
